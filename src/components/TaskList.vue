@@ -5,7 +5,9 @@
     const props = defineProps<{ tasks: Task[] }>()
 
     const emits = defineEmits<{ toogleDone: [id: string], removeTask: [id: string] }>();
-
+    //toogleDone: [id: string] indica que toogleDone recibe un parametro que se llama id y es de tipo string
+    //removeTask: [id: string] indica que removeTask recibe un parametro que se llama id y es de tipo string
+    /* si quiero emitir un evento sin informacion lo hago de la siguiente manera, {seria toogle: []} */
 </script>
 
 <template>
@@ -16,6 +18,7 @@
                 <span :class="{ done: task.done }">{{ task.title }}</span>
             </label>
             <button @click="emits('removeTask', task.id)">Eliminar</button>
+            <!-- Emite el evento 'removeTask' con el parametro id que es de tipo string -->
         </article>
     </TransitionGroup>
 </template>
